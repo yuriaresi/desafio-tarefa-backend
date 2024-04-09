@@ -13,6 +13,13 @@ class TarefaService {
             return ResultvalidarCampoTitulo;
         }
         const tarefa = new Tarefa_model_1.Tarefa(data.titulo, data.descricao);
+        if (tarefa.titulo.length > 50) {
+            return {
+                ok: false,
+                message: "Titulo da tarefa precisa ter no maximo 50 caracteres",
+                code: 400,
+            };
+        }
         const result = await prisma_repository_1.default.tarefas.create({
             data: tarefa,
         });

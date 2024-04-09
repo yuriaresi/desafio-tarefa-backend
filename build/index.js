@@ -11,7 +11,7 @@ app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 const tarefasController = new tarefas_controller_1.TarefasController();
 app.post("/tarefas", tarefasController.CriarTarefa);
-app.get("/", tarefasController.ListarTarefas);
+app.get("/tarefas", tarefasController.ListarTarefas);
 app.put("/:id", tarefasController.EditarTarefa);
 app.delete("/:id", tarefasController.DeletarTarefa);
 app.listen(3333, () => {

@@ -27,12 +27,6 @@ class TarefasController {
     async ListarTarefas(req, res) {
         try {
             const result = await prisma_repository_1.default.tarefas.findMany();
-            if (result.length === 0) {
-                return res.status(400).send({
-                    ok: false,
-                    message: "Vamos começar uma nova terefa?",
-                });
-            }
             return res.status(201).send({
                 ok: true,
                 message: "Todas as tarefas listadas com sucesso",
